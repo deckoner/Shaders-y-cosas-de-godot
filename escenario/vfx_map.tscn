@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq48wy464y57f"]
+
+[ext_resource type="Shader" uid="uid://do8e0xd7b5hh2" path="res://sword/aura_shader.tres" id="1_wq5at"]
+[ext_resource type="ArrayMesh" uid="uid://c1isr5r8ftsc8" path="res://sword/meshes/sword_mesh.res" id="2_haiej"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s3j12"]
+render_priority = 2
+shader = ExtResource("1_wq5at")
+shader_parameter/AuraColor = Color(0.82471013, 0.22698498, 0.80337566, 1)
+shader_parameter/AuraIntensity = 6.0
+
+[node name="VFX Map" type="Node"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.7747018, 0.6323268, 0, -0.6323268, 0.7747018, 0, 2.0688052, 1.042263)
+
+[node name="SwordMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021156311, 0.10957849, -0.29166925)
+material_overlay = SubResource("ShaderMaterial_s3j12")
+mesh = ExtResource("2_haiej")
